@@ -80,31 +80,31 @@ class HangpersonApp < Sinatra::Base
   
   get '/win' do
     ### YOUR CODE HERE ###
-    #if @game.word.to_s.strip.empty?
-    #     redirect '/new' 
-    #end
-    #result = @game.check_win_or_lose
-   # case result
-    #    when :play
-    #        redirect '/show'
-     #   when :lose
-     #       redirect '/lose'
-    #end
+    if @game.word.to_s.strip.empty?
+         redirect '/new' 
+    end
+    result = @game.check_win_or_lose
+    case result
+        when :play
+            redirect '/show'
+        when :lose
+            redirect '/lose'
+    end
     erb :win # You may change/remove this line
   end
   
   get '/lose' do
     ### YOUR CODE HERE ###
-    #if @game.word.to_s.strip.empty?
-    #     redirect '/new' 
-    #end
-    #result = @game.check_win_or_lose
-    #case result
-    #    when :play
-    #        redirect '/show'
-    #    when :win
-    #        redirect '/win'
-    #end
+    if @game.word.to_s.strip.empty?
+         redirect '/new' 
+    end
+    result = @game.check_win_or_lose
+    case result
+        when :play
+            redirect '/show'
+        when :win
+            redirect '/win'
+    end
     erb :lose # You may change/remove this line
   end
   
