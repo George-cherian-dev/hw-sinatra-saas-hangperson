@@ -18,6 +18,7 @@ class HangpersonGame
     def finishinit()
         @guesses = ''
         @wrong_guesses = ''
+        @word = @word.to_s.strip.empty? ? " " : @word
         @word.downcase!
 
         @word.split('').each do |a|
