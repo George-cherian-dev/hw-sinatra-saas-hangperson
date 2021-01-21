@@ -29,11 +29,8 @@ class HangpersonApp < Sinatra::Base
     # NOTE: don't change next line - it's needed by autograder!
     word = params[:word] || HangpersonGame.get_random_word
     # NOTE: don't change previous line - it's needed by autograder!
-     print("test create"+"\n")
     @game = HangpersonGame.new(word)
-     print(@game.word_with_guesses+" test 2 "+@game.wrong_guesses+"\n")
-     print(@game.check_win_or_lose.to_s+" test 3 \n") 
-     session[:game] = @game
+    session[:game] = @game
     redirect '/show'
   end
   
@@ -62,12 +59,7 @@ class HangpersonApp < Sinatra::Base
   # wrong_guesses and word_with_guesses from @game.
   get '/show' do
     ### YOUR CODE HERE ###
-    print(@game.word_with_guesses+" test 6 "+@game.wrong_guesses+"\n")
     result = @game.check_win_or_lose
-      
-      
-    print(@game.word_with_guesses+" test 6 "+@game.wrong_guesses+"\n")
-    print(result.to_s+" test 5 \n")
       
     case result
         when :win
