@@ -5,10 +5,10 @@ class HangpersonGame
 
       # Get a word from remote "random word" service
 
-    def initialize()
-        @word = self.get_random_word
-        finishinit()
-    end
+    #def initialize()
+    #    @word = self.get_random_word
+    #    finishinit()
+    #end
   
     def initialize(word)
         @word = word
@@ -90,6 +90,11 @@ class HangpersonGame
         require 'uri'
         require 'net/http'
         uri = URI('http://watchout4snakes.com/wo4snakes/Random/RandomWord')
+        #uri = URI('https://random-word-api.herokuapp.com/word')
+        #response = Net::HTTP.get_response(uri)
+        #print(response.body)
+        #print(response.body.delete('[]\"'))
+        #return response.body.delete('[]\"')
         Net::HTTP.new('watchout4snakes.com').start { |http|
           return http.post(uri, "").body
         }
